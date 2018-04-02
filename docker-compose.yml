@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  eldavosblog-api:
+    image: mscblog/user-api:latest
+    ports:
+      - 3000:3000
+    networks:
+      main:
+        aliases:
+          - eldavosblog-api
+    command: >
+      /bin/bash -c "sleep 5; node ."
+networks:
+  main:
+
+volumes:
+  yarn:
