@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '8'
+cache:
+  yarn: true
+services:
+- docker
+install:
+- npm i
+deploy:
+  - provider: cloudfoundry
+    api: https://api.run.pivotal.io
+    username: david.ahern26@gmail.com
+    password:
+      secure: 1mgOSL4+t2ouY88K6nO/peRYO2JzE3S0jqUTfD7nV5BVFSDxtpyTp4hwT0p6tGFqOmQ1eVGRUB//hOEZaHHfqO7dCNyk7VWqmT3QV/3YJU7t75Uv2WHt0uAOsFoWleTcXquo5GPwQDkRGNS7vABQqMgdbpHkF8+qUMUCopmJ0bUw/Eq4cUJt1GIwFulwQNk4HmKltuQgvphuncGAuQoDopbCiXgsEx42PT4neY/AkHQRjW3FNT+l16Ik6XE1mEyiTk1C1bIgpJLd5I+njHN5sg/i3uabIcWxBnvMvkzjvLPXTG8vtGANM4VPLM7d8ZKXK+QoVIy8qF5wkZZHdVwPkWgymrBqY+0xDV0ms6KoqEDF1zUB+KcDdkeBp8xJ1zCAoTcgOkZaCxw6DT8UplM4/BBJrbkCSt3dhTk4BWvLgxmGU6KH00o2ilcJ8aDQ2GO4ReuU6shRkCkzP1xDF0VOn3hSzo7iisk0xqGbTn6gVygkvCQ2BlDGj6Yax6CAdLZmjdyKTM0jZkZ8DlJwdQGADsbW6oLGJ4jAFMuhJw192R9QNglvxO3VQMkrvFdDli9fehAliptucV7lLFkurKEThHsJdsVIwGPYi473fDXjCKpUcwlwaMwWwTrrm+3dFlMr6GQdwf+8h541vUXpQ61Cz+McmTNaGcFHnHwrbIsKkeA=
+    organization: thor
+    space: dev
+    on:
+      repo: msc-blog-assignment/msc-blog-gateway
+      branch: master
+  - provider: script
+    script: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" && yarn docker:tag && yarn docker:push
+    on:
+      branch: master
