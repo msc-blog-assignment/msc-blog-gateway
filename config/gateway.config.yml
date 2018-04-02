@@ -4,24 +4,39 @@ admin:
   port: 9876
   hostname: localhost
 apiEndpoints:
-  users:
+  user:
     host: '*'
     paths:
       - /api/me
       - /api/users/login
       - /api/users/logout
+  article:
+    host: '*'
+    paths:
+      - /api/articles
 serviceEndpoints:
-  users:
-      url: ${USER_API}
+  user:
+    url: ${USER_API}
+  article:
+    url: ${ARTICLE_API}
 policies:
   - user-exists
   - proxy
 pipelines:
-  my-api:
+  - user-api:
     apiEndpoints:
-      - users
+      - user
     policies:
       - proxy:
         - action:
-            serviceEndpoint: users
+            serviceEndpoint: user
+            changeOrigin: true
+  - article-api:
+    apiEndpoints:
+      - article
+    policies:
+      - user-exists:
+      - proxy:
+        - action:
+            serviceEndpoint: article
             changeOrigin: true

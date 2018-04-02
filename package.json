@@ -7,7 +7,7 @@
     "npm": "3"
   },
   "scripts": {
-    "start": "cross-env USER_API=http://localhost:3000 node .",
+    "start": "cross-env USER_API=http://localhost:3000 ARTICLE_API=http://localhost:3001 node .",
     "test": "exit 0",
     "docker": "docker build -t mscblog/gateway .",
     "docker:tag": "docker tag mscblog/gateway msc-blog/gateway",
