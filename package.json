@@ -9,9 +9,9 @@
   "scripts": {
     "start": "node .",
     "test": "exit 0",
-    "docker": "docker build -t msc-blog/gateway .",
-    "docker:tag": "docker tag msc-blog/gateway msc-blog/gateway",
-    "docker:push": "docker push msc-blog/gateway"
+    "docker": "docker build -t mscblog/gateway .",
+    "docker:tag": "docker tag mscblog/gateway msc-blog/gateway",
+    "docker:push": "docker push mscblog/gateway"
   },
   "dependencies": {
     "express-gateway": "^1.8.0"
