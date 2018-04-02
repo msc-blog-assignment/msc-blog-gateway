@@ -3,6 +3,3 @@ instances: 1
 memory: 100M
 buildpack: nodejs_buildpack
 command: node .
-env:
-    OPTIMIZE_MEMORY : true
-    NODE_ENV: production
