@@ -7,13 +7,17 @@
     "npm": "3"
   },
   "scripts": {
-    "start": "node .",
+    "start": "cross-env USER_API=http://localhost:3000 node .",
     "test": "exit 0",
     "docker": "docker build -t mscblog/gateway .",
     "docker:tag": "docker tag mscblog/gateway msc-blog/gateway",
     "docker:push": "docker push mscblog/gateway"
   },
   "dependencies": {
-    "express-gateway": "^1.8.0"
+    "express-gateway": "^1.8.0",
+    "express-gateway-plugin-loopback": "0.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.4"
   }
 }
