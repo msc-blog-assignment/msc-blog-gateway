@@ -1,5 +1,8 @@
-name: redux-mesh-api
+name: msc-blog-gateway
 instances: 1
 memory: 128M
 buildpack: nodejs_buildpack
 command: node .
+env:
+    OPTIMIZE_MEMORY : true
+    NODE_ENV: production
