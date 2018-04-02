@@ -2,6 +2,10 @@
   "name": "msc-blog-gateway",
   "version": "1.0.0",
   "main": "server.js",
+  "engines": {
+    "node": ">=8",
+    "npm": "5"
+  },
   "dependencies": {
     "express-gateway": "^1.8.0",
     "docker": "docker build -t msc-blog/gateway .",
