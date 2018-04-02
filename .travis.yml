@@ -6,8 +6,7 @@ cache:
 services:
 - docker
 install:
-- yarn
-- yarn docker
+- npm i
 deploy:
   - provider: cloudfoundry
     api: https://api.run.pivotal.io
