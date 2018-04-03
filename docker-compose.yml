@@ -9,7 +9,7 @@ services:
     networks:
       main:
         aliases:
-          - mscblog
+          - mscblog-user-api
     command: >
       /bin/bash -c "sleep 5; node ."
 
@@ -20,9 +20,23 @@ services:
     networks:
       main:
         aliases:
-          - mscblog
+          - mscblog-article-api
     command: >
       /bin/bash -c "sleep 5; node ."
+
+  graphql:
+      image: mscblog/graphql:latest
+      ports:
+        - 3002:3030
+      environment:
+        USER_API: mscblog-user-api
+        ARTICLE_API: mscblog-article-api
+      networks:
+        main:
+          aliases:
+            - mscblog
+      command: >
+        /bin/bash -c "sleep 5; node ."
 
 networks:
   main:

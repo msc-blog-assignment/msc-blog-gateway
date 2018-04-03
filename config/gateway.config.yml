@@ -10,15 +10,16 @@ apiEndpoints:
       - /api/me
       - /api/users/login
       - /api/users/logout
-  article:
+  graphql:
     host: '*'
     paths:
-      - /api/articles
+      - /graphql
+      - /graphiql
 serviceEndpoints:
   user:
     url: ${USER_API}
-  article:
-    url: ${ARTICLE_API}
+  graphql:
+    url: ${GRAPHQL}
 policies:
   - user-exists
   - proxy
@@ -33,10 +34,10 @@ pipelines:
             changeOrigin: true
   - article-api:
     apiEndpoints:
-      - article
+      - graphql
     policies:
       - user-exists:
       - proxy:
         - action:
-            serviceEndpoint: article
+            serviceEndpoint: graphql
             changeOrigin: true

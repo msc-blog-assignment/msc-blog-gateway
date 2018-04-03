@@ -7,4 +7,4 @@ env:
     OPTIMIZE_MEMORY : true
     NODE_ENV: production
     USER_API: https://msc-blog-user-api.cfapps.io
-    ARTICLE_API: https://msc-blog-article-api.cfapps.io
+    GRAPHQL: https://msc-blog-graphql.cfapps.io
