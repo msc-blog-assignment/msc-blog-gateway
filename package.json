@@ -7,7 +7,7 @@
     "npm": "3"
   },
   "scripts": {
-    "start": "cross-env USER_API=http://localhost:3000 GRAPHQL=http://localhost:3002 node .",
+    "start": "cross-env USER_API=http://localhost:3000 GRAPHQL=http://localhost:3002 UI_URL=http://localhost:4000 node .",
     "test": "exit 0",
     "docker": "docker build -t mscblog/gateway .",
     "docker:tag": "docker tag mscblog/gateway msc-blog/gateway",

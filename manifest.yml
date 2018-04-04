@@ -8,3 +8,4 @@ env:
     NODE_ENV: production
     USER_API: https://msc-blog-user-api.cfapps.io
     GRAPHQL: https://msc-blog-graphql.cfapps.io
+    UI_URL: https://msc-blog-ui.cfapps.io

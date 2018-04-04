@@ -34,9 +34,18 @@ services:
       networks:
         main:
           aliases:
-            - mscblog
+            - graphql
       command: >
         /bin/bash -c "sleep 5; node ."
+
+  ui:
+    image: mscblog/ui:latest
+    ports:
+      - 4000:8080
+    networks:
+      main:
+        aliases:
+          - ui
 
 networks:
   main:

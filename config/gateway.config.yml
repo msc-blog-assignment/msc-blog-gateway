@@ -15,11 +15,17 @@ apiEndpoints:
     paths:
       - /graphql
       - /graphiql
+  ui:
+    host: '*'
+    paths:
+      - /*
 serviceEndpoints:
   user:
     url: ${USER_API}
   graphql:
     url: ${GRAPHQL}
+  ui:
+    url: ${UI_URL}
 policies:
   - user-exists
   - proxy
@@ -32,7 +38,7 @@ pipelines:
         - action:
             serviceEndpoint: user
             changeOrigin: true
-  - article-api:
+  - graphql:
     apiEndpoints:
       - graphql
     policies:
@@ -40,4 +46,12 @@ pipelines:
       - proxy:
         - action:
             serviceEndpoint: graphql
+            changeOrigin: true
+  - ui:
+    apiEndpoints:
+      - ui
+    policies:
+      - proxy:
+        - action:
+            serviceEndpoint: ui
             changeOrigin: true
