@@ -27,7 +27,6 @@ serviceEndpoints:
   ui:
     url: ${UI_URL}
 policies:
-  - user-exists
   - proxy
 pipelines:
   - user-api:
@@ -42,7 +41,6 @@ pipelines:
     apiEndpoints:
       - graphql
     policies:
-      - user-exists:
       - proxy:
         - action:
             serviceEndpoint: graphql

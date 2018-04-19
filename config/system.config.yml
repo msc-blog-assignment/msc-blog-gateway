@@ -24,8 +24,3 @@ refreshTokens:
   timeToExpiry: 7200000
 authorizationCodes:
   timeToExpiry: 300000
-
-plugins:
-  express-gateway-plugin-loopback:
-    baseUrl: ${USER_API}
-    userExistsPath: "/api/me"
